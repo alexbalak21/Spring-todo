@@ -8,13 +8,13 @@
 		<version>3.0.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>try</groupId>
+	<groupId>com.alex</groupId>
 	<artifactId>Spring-todo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Spring-todo</name>
-	<description>Spring Boot Todo</description>
+	<description>Spring Boot Todo App</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>19</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
