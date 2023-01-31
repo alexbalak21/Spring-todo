@@ -1,8 +1,9 @@
 package com.example.alex.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.alex.model.Task;
+import com.example.alex.repository.TaskRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TodoController {
@@ -15,4 +16,11 @@ public class TodoController {
     public String getOne(){
         return "Return Todo";
     }
+    @PostMapping("/new")
+    CommandLineRunner commandLineRunner(TaskRepository taskRepo, @RequestBody Task taskReq){
+        return args -> {
+            Task task = new Task("Test", false);
+            taskRepo.save(task);
+        };
+        };
 }
