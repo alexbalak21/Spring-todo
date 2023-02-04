@@ -29,14 +29,14 @@ public class TodoController {
     }
 
     @PutMapping("/update/{id}")
-    public String update(@PathVariable Integer id, @RequestBody Task putTask){
+    public Task update(@PathVariable Integer id, @RequestBody Task putTask){
         if (tasks.findById(id).isEmpty()){
-            return "No task";
+            return new Task(0, "Task not found", false);
         }
         else {
             Task updatedTask = new Task(id, putTask.getTitle(), putTask.isDone());
             tasks.save(updatedTask);
-            return updatedTask.toString();
+            return updatedTask;
         }
     }
 
@@ -47,7 +47,7 @@ public class TodoController {
         }
         else
         tasks.deleteById(id);
-        return "deleted";
+        return "{'status':'deleted'}";
     }
     }
 
