@@ -1,0 +1,11 @@
+POST http://localhost:3000/new
+content-type: application/json
+
+{
+    "title": "test"
+}
+
+###
+
+GET http://localhost:3000/
+content-type: application/json

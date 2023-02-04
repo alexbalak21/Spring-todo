@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://127.0.0.1:5500/")
 public class TodoController {
 
     private final TaskRepository tasks;
@@ -16,6 +17,7 @@ public class TodoController {
     }
 
     @GetMapping("/")
+
     public Iterable<Task> tasks(){
         return tasks.findAll();
     }
