@@ -39,6 +39,15 @@ public class TodoController {
             return updatedTask;
         }
     }
+    public record StateOfTask (boolean done){}
+
+    @PutMapping("/complete/{id}")
+    public String chageCoplete(@PathVariable Integer id, @RequestBody StateOfTask state) {
+    tasks.updateState(id, state.done());
+    return "{'status':'updated'}";
+    }
+
+
 
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
