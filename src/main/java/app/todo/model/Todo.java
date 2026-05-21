@@ -8,44 +8,42 @@ import jakarta.persistence.Id;
 @Entity
 public class Todo {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String text;
+    private boolean completed;
 
-	private String title;
-	private boolean completed;
+    // Constructors
+    public Todo() {}
 
-	// Constructors
-	public Todo() {
-	}
+    public Todo(String text, boolean completed) {
+        this.text = text;
+        this.completed = completed;
+    }
 
-	public Todo(String title, String description, boolean completed) {
-		this.title = title;
-		this.completed = completed;
-	}
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
 
-	// Getters and Setters
-	public Long getId() {
-		return id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public String getText() {
+        return text;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setText(String text) {
+        this.text = text;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public boolean isCompleted() {
+        return completed;
+    }
 
-	public boolean isCompleted() {
-		return completed;
-	}
-
-	public void setCompleted(boolean completed) {
-		this.completed = completed;
-	}
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
 }
